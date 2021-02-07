@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-family: 'MontSerrat', sans-serif;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #cfd964, #64d9a0);
+    color: #06052e;
+}
+
+*, 
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.container {
+    margin: 100px auto;
+    text-align: center;
+
+    width: 100%;
+    max-width: 700px;
+}
+
+.main-content {
+    border: solid 4px #06052e;
+    height: 100%;
+    min-height: 500px;
+}
+
+.content {
+    margin: 0px auto 50px auto;
+
+    width: 100%;
+    max-width: 500px;
+}
+
+.header-logo {
+    margin: 40px auto;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.add {
+    display: flex;
+}
+
+.add-textfield {
+    padding: 10px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    text-decoration: none;
+}
+
+.add-textfield:focus {
+    outline: none;
+}
+
+button {
+    /* display: inline-block; */
+    padding: 10px 15px;
+    font-weight: 500;
+    background-color: #0e5224;
+    color: white;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    text-decoration: none;
+    /* position: absolute; */
+}
+
+button:hover {
+    background-color: #219447;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    width: 51px;
+    height: 36px;
+}
+
+.active {
+    text-decoration: line-through;
+}
+
+.task {
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.task p {
+    margin: 0;
+    margin-right: 10px;
+    width: 100%;
+    min-width: 350px;
+    text-align: left;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.task button img {
+    width: 18px;
+    height: 18px;
+}
+
+.task button {
+    padding: 5px;
+    border-radius: 5px;
+    width: 32px;
+}
+
+.task-done {
+    margin-right: 10px;
+}
+
+.task.done p {
+    text-decoration: line-through;
+}
+
+.task-done:active, .task-del:active {
+    width: 27px;
+    height: 31px;
+}
