@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+<meta name="csrf_token" content="4TRlWBnBUk65rZcCqUGpKgRDrcyFjCxF"/>
+<meta name="csrf_token" content="1froUAMqSYDD7M4Pz7h5iD76ePB4lRqC"/>
+        <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script><script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../lib/log4javascript_lite.js"></script>
+
+        <script type="text/javascript">
+
+            var AJAX_HEADER = '../';
+            var AJAX_TAIL = '';
+            var AJAX_TIMEOUT = 30000;
+            var log = log4javascript.getNullLogger();
+
+            function _recursiveXml2Object($xml) {
+                if ($xml.children().size() > 0) {
+                    var _obj = {};
+                    $xml.children().each(function() {
+                        var _childObj = ($(this).children().size() > 0) ? _recursiveXml2Object($(this)) : $(this).text();
+                        if ($(this).siblings().size() > 0 && $(this).siblings().get(0).tagName == this.tagName) {
+                            if (_obj[this.tagName] == null) {
+                                _obj[this.tagName] = [];
+                            }
+                            _obj[this.tagName].push(_childObj);
+                        }
+                        else {
+                            _obj[this.tagName] = _childObj;
+                        }
+                    });
+                    return _obj;
+                }
+                else {
+                    return $xml.text();
+                }
+            }
+
+            function xml2object($xml) {
+                var obj = new Object();
+                if ($xml.find('response').size() > 0) {
+                    var _response = _recursiveXml2Object($xml.find('response'));
+                    obj.type = 'response';
+                    obj.response = _response;
+                }
+                else if ($xml.find('error').size() > 0) {
+                    var _code = $xml.find('code').text();
+                    var _message = $xml.find('message').text();
+                    log.warn('MAIN : error code = ' + _code);
+                    log.warn('MAIN : error msg = ' + _message);
+                    obj.type = 'error';
+                    obj.error = {
+                        code: _code,
+                        message: _message
+                    };
+                }
+                else if ($xml.find('config').size() > 0) {
+                    var _config = _recursiveXml2Object($xml.find('config'));
+                    obj.type = 'config';
+                    obj.config = _config;
+                }
+                else {
+                    obj.type = 'unknown';
+                }
+                return obj;
+            }
+
+            function getAjaxData(urlstr, callback_func, options) {
+                var myurl = AJAX_HEADER + urlstr + AJAX_TAIL;
+                var isAsync = true;
+                var nTimeout = AJAX_TIMEOUT;
+                var errorCallback = null;
+
+                if (options) {
+                    if (options.sync) {
+                        isAsync = (options.sync == true) ? false : true;
+                    }
+                    if (options.timeout) {
+                        nTimeout = parseInt(options.timeout, 10);
+                        if (isNaN(nTimeout)) {
+                            nTimeout = AJAX_TIMEOUT;
+                        }
+                    }
+                    errorCallback = options.errorCB;
+                }
+
+                $.ajax({
+                    async: isAsync,
+                    //cache: false,
+                    type: 'GET',
+                    timeout: nTimeout,
+                    url: myurl,
+                    //dataType: ($.browser.msie) ? "text" : "xml",
+                    error: function(XMLHttpRequest, textStatus) {
+                        try {
+                            if (jQuery.isFunction(errorCallback)) {
+                                errorCallback(XMLHttpRequest, textStatus);
+                            }
+                            log.error('MAIN : getAjaxData(' + myurl + ') error.');
+                            log.error('MAIN : XMLHttpRequest.readyState = ' + XMLHttpRequest.readyState);
+                            log.error('MAIN : XMLHttpRequest.status = ' + XMLHttpRequest.status);
+                            log.error('MAIN : textStatus ' + textStatus);
+                        }
+                        catch (exception) {
+                            log.error(exception);
+                        }
+                    },
+                    success: function(data) {
+                        log.debug('MAIN : getAjaxData(' + myurl + ') sucess.');
+                        log.trace(data);
+                        var xml;
+                        if (typeof data == 'string' || typeof data == 'number') {
+                            if (-1 != this.url.indexOf('/api/sdcard/sdcard')) {
+                                data = sdResolveCannotParseChar(data);
+                            }
+                            if (!window.ActiveXObject) {
+                                var parser = new DOMParser();
+                                xml = parser.parseFromString(data, 'text/xml');
+                            }
+                            else {
+                                //IE
+                                xml = new ActiveXObject('Microsoft.XMLDOM');
+                                xml.async = false;
+                                xml.loadXML(data);
+                            }
+                        }
+                        else {
+                            xml = data;
+                        }
+                        if (typeof callback_func == 'function') {
+                            callback_func($(xml));
+                        }
+                        else {
+                            log.error('callback_func is undefined or not a function');
+                        }
+                    }
+                });
+            }
+
+
+        function enforcement_openNewWindow () {
+            var homepage_url = null;
+            var newUrl = null;
+            var update_redirect = null;
+            getAjaxData("api/online-update/upgrade_redirction", function($xml) {                
+                var ret = xml2object($xml);
+                if(ret.type == "response") {
+                    update_redirect = ret.response.upgrade_redirction;
+                }
+            },{
+                sync: true
+            });
+            if(update_redirect == '1') {
+                homepage_url = 'home.html';
+            } else {                
+                getAjaxData('api/redirection/homepage', function($xml){
+                    var homepage_ret = xml2object($xml);
+                    if ('response' == homepage_ret.type) {
+                        if (homepage_ret.response.Homepage.length > 4) {
+                            if (homepage_ret.response.Homepage.toLowerCase().substring(0, 4) == 'http') {
+                                homepage_url = homepage_ret.response.Homepage;
+                            } else  {
+                                homepage_url = 'http://' + homepage_ret.response.Homepage;
+                            }
+                        }
+                    }
+                }, 
+                {
+                sync: true
+                });
+            }
+            
+            var find_str = "?updataredirect=";
+            if (window.location.href.indexOf(find_str) > -1) {
+                var tmpUrl = window.location.href.substring(window.location.href.indexOf(find_str));
+                newUrl = "http://" + tmpUrl.substring(tmpUrl.indexOf(find_str) + find_str.length);
+            }
+          /*
+            if ((null != homepage_url) && (homepage_url.substring(homepage_url.length-1) != "/")) {
+                homepage_url = homepage_url + "/";
+            }
+            if ((null != newUrl) && (newUrl.substring(newUrl.length-1) != "/")) {
+                newUrl = newUrl + "/";
+            }
+           */
+            if (homepage_url == newUrl) {
+                if (null != homepage_url) {
+                    window.location.replace(homepage_url);
+                }
+            } else {
+                if(update_redirect == '1') {                    
+                    if(null != newUrl) {
+                        homepage_url += '?url&address=';
+                        homepage_url += newUrl;                        
+                    }                        
+                    window.location.replace(homepage_url);                    
+                } else {
+                    if (null != homepage_url) {
+                        window.location.replace(homepage_url);
+                    }                    
+                }
+            }
+        }
+        enforcement_openNewWindow();
+        </script>
+    </head>
+
+    <body>
+        <noscript>
+            Sorry, your browser does not support javascript.
+        </noscript>
+    </body>
+</html>
+
+
