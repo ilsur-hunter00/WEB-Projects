@@ -1,0 +1,163 @@
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+/*=== Header ===*/
+
+.page {
+	margin: 0 auto;
+
+	width: 100%;
+	height: 100vh;
+	max-width: 1920px;
+}
+
+.container {
+	margin: 0 auto;
+
+	width: 100%;
+	max-width: 959px;
+}
+
+.header-inner {
+	padding: 37px 0 37px 0;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-text {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.header-nav {
+	display: flex;
+
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-nav-link {
+	margin-left: 37px;
+
+	font-size: 14;
+	font-weight: 600;
+	color: #999999;
+	text-transform: uppercase;
+
+	display: inline-block;
+	text-decoration: none;
+}
+
+.header-nav-link:first-child {
+	margin-left: 0;
+}
+
+.main-picture img {
+	width: 100%;
+}
+
+/*=== Content ===*/
+
+.main-phrase  {
+	margin: 120px auto;
+
+	font-size: 40px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.banners {
+	margin-top: 110px;
+	margin-bottom: 113px;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.title-banner {
+	margin-bottom: 43px;
+
+	font-size: 26px;
+	font-weight: 400;
+}
+
+.img-banner img {
+	width: 100%;
+	max-width: 288px;
+	max-height: 192px;
+}
+
+.text-banner p {
+	margin-top: 39px;
+
+	max-width: 288px;
+
+	font-size: 18px;
+	font-weight: 400;
+	color: #999999;
+
+	display: inline-block;
+	text-align: justify;
+}
+
+/*=== Btn ===*/
+
+.btn {
+	display: inline-block;
+	padding: 15px 35px;
+
+	font-size: 14px;
+	font-weight: 600;
+	color: black;
+
+	border: solid 1.5px black;
+	border-radius: 5px;
+
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/*=== Inst Pictures ===*/
+
+.title-instagram {
+	margin-bottom: 110px;
+}
+
+.inst-pic-container {
+	width: 100%;
+	display: flex;
+	margin-bottom: 120px;
+}
+
+.main-pic {
+	margin-right: 50px;;
+}
+
+.main-pic img {
+	width: 100%;
+	max-width: 420px;
+	max-height: 420px;
+}
+
+.not-main-pics {
+	justify-content: space-between;
+}
+
+.not-main-pics img {
+	width: 100%;
+	max-width: 192px;
+	max-height: 192px;
+
+	margin-right: 35px;
+	margin-bottom: 35px;
+}
+
+
