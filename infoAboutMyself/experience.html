@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/transitions.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Info about myself</title>
+</head>
+<body>
+    <div class="transition transition-3 is-active"></div>
+    <div class="change-bg-block">
+        <p>Choose your <br> background</p>
+        <input class="change-button" style="background-color: aqua;" type="button" onclick="changeBGButtonBlue()">
+        <input class="change-button" style="background-color: rgb(173, 173, 173);" type="button" onclick="changeBGButtonWhite()"><br>
+        <input class="change-button" style="background-color: black;" type="button" onclick="changeBGButtonDark()">
+        <input class="change-button" style="background-color: pink;" type="button" onclick="changeBGButtonPink()">
+    </div>
+    <div class="container">
+        <div class="name">
+            <h2 style="margin-bottom: 5px;">VAFIN ILSUR</h2>
+            <h4>WEB DEVELOPER</h4>
+        </div>
+        <div class="social-networks" style="text-align: right;">
+            <a href="#"><img src="img/vk-logo.png" alt="vk-logo"></a>
+            <a href="#"><img src="img/whatsapp-logo.png" alt="whatsapp-logo"></a>
+            <a href="#"><img src="img/instagram-logo.png" alt="instagram-logo"></a>
+        </div>
+        <div class="main-card__navbar" style="border-radius: 10px 10px 0 0;">
+            <ul class="navigation" style="margin-bottom: 0;">
+                <li><a class="links" href="index.html"><img src="img/card.png" alt=""><br>Card</a></li>
+                <li class="active-link"><a class="links" href="experience.html"><img src="img/experience.png" alt=""><br>Experience</a></li>
+                <li><a class="links" href="portfolio.html"><img src="img/portfolio.png" alt=""><br>Portfolio</a></li>
+            </ul>
+        </div>
+        <div class="education-job-info">
+            <div>
+                <div class="education">
+                    <h5>EDUCATION</h5>
+                    <div class="myself-info">
+                        <div class="myself-info-head">
+                            <h6>KNRTU-KAI University</h6>
+                            <p>2018-present</p>
+                        </div>
+                        <p class="head-information">Specialty: Software Engineering</p><br>
+                        <p class="text-info">In this specialty, we study various areas of programming, <br> 
+                            such as object-oriented programming, <br> 
+                            data processing structures and algorithms, <br> 
+                            web programming, and others.</p>
+                    </div>
+                </div>
+                <div class="employement">
+                    <h5>EMPLOYEMENT</h5>
+                    <div class="myself-info">
+                        <div class="myself-info-head">
+                            <h6>Freelance</h6>
+                            <p>2018-present</p>
+                        </div>
+                        <p class="head-information">OOO "Burevesnik"</p><br>
+                        <p class="text-info">Developed a website for the company OOO "Burevesnik"</p>
+                    </div>
+                    <div class="myself-info">
+                        <div class="myself-info-head">
+                            <h6>DECIDE</h6>
+                            <p>2020-present</p>
+                        </div>
+                        <p class="head-information">HR Company</p><br>
+                        <p class="text-info">We are developing an application with the team <br> using React technologies to help students with job search.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="skills">
+                <h5>SKILLS IN PROGRAMMING</h5>
+                <div class="skills-info">
+                    <ul>
+                        <li>JavaScript</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9679;	&#9675;</p><br>
+                        <li>React</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9679;	&#9675;</p><br>
+                        <li>HTML/CSS/SCSS</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9679;	&#9675;</p><br>
+                        <li>PHP/MySQL</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9675;	&#9675;</p><br>
+                        <li>C++</li><p style="float: right;">&#9679;	&#9679;	&#9675;	&#9675;	&#9675;</p><br>
+                        <li>Java/C#</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9675;	&#9675;</p><br>
+                        <li>Python</li><p style="float: right;">&#9679;	&#9679;	&#9675;	&#9675;	&#9675;</p><br><br>
+                    </ul>
+                </div>
+                <h5>SKILLS IN DESIGN</h5>
+                <div class="skills-info">
+                    <ul>
+                        <li>PhotoShop</li><p style="float: right;">&#9679;	&#9679;	&#9675;	&#9675;	&#9675;</p><br>
+                        <li>Figma</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9679;	&#9675;</p><br>
+                        <li>AdobeXD</li><p style="float: right;">&#9679;	&#9679;	&#9679;	&#9675;	&#9675;</p><br>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <script src="js/transition.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
