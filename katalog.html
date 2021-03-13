@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="css/style.css">
+    <title>IL_Pharm</title>
+</head>
+<body style="background: url('img/bg2.jpg') ; background-size: cover; color: black">
+    <div class="dark-2">
+        
+            <div class="container">
+                <div class="header">
+                    <div class="header__logo">
+                        <img src="img/pharmacy.png" alt="logo">
+                        <p>IL_Pharm</p>
+                    </div>
+                    <div class="header__nav black-items">
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="katalog.html" class="active">Каталог</a></li>
+                            <li><a href="show-more.html">О нас</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="width: 100%; height: 1px; background-color: rgb(196, 196, 196);  margin-bottom: 30px; border: none">
+                <div class="search">
+                    <div class="search__form">
+                        <input type="text" class="search__form-text" placeholder="Найти на странице">
+                        <input type="submit" value="Поиск" class="search__form-submit">
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="main-content-katalog">
+                        <div class="sort">
+                            <div class="sort-price">
+                                <p>По цене <span>&#8593;</span></p>
+                            </div>
+                            <div class="sort-availability">
+                                <p>Сначала в наличии</p>
+                            </div>                                            
+                        </div>
+                        <div class="pharm">
+                            <div class="pharm__filter">
+                                <form action="#">
+                                    <div class="category">
+                                        <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+                                        <label class="btn-menu" for="hmt">
+                                            <p> <span>&#9660;</span> Категория</p>
+                                        </label>
+                                        <ul class="hidden-menu">
+                                            <li><a href="">Витамины</a></li>  
+                                            <li><a href="">Антибиотики</a></li>
+                                            <li><a href="">От болей в желудке</a></li>  
+                                        </ul>
+                                    </div>
+                                    <div class="price">
+                                        <input type="checkbox" id="hmt1" class="hidden-menu-ticker-1">
+                                        <label class="btn-menu-1" for="hmt1">
+                                            <p> <span>&#9660;</span> Цена</p>
+                                        </label>
+                                        <ul class="hidden-menu-1">
+                                            <input type="text" class="price-before"><span style="margin: 0 20px">&#8212;</span><input type="text" class="price-after">
+                                        </ul>
+                                    </div>
+                                    <div class="main__button main__button-show">
+                                        <input type="submit" value="Показать" class="submit-show">    
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="pharm__card">
+                                <div class="pharm__card-img">
+                                    <img src="img/vitamin.jpg" alt="">
+                                </div>
+                                <div class="pharm__card-info">
+                                    <p>Maison Natural Vitamin C</p>
+                                    <p>Производитель: Maison Natural</p>
+                                    <p>Наличие: есть в наличии</p>
+                                    <div class="main__button main__button-show">
+                                        <input type="button" value="Заказать" class="submit-show" style="margin-top: 20px;">    
+                                    </div>
+                                </div>
+                                <div class="pharm__card-price">
+                                    <p>282.00</p><p>P</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+        
+                </div>
+            </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Montserrat';
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    color: white;
+
+    background: url('../img/bg.jpg') no-repeat;
+    background-size: cover;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Montserrat';
+
+    letter-spacing: 1px;
+}
+
+.dark {
+    background-color: rgba(0, 0, 0, .7);
+    height: 100%;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+} 
+
+.container {
+    width: 1080px;
+
+    margin: 0 auto;
+}
+
+.header {
+    padding-top: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    margin: auto 0;
+
+    display: flex;
+}
+
+.header__logo img {
+    margin-right: 20px;
+
+    height: 32px;
+
+}
+
+.header__logo p {
+    margin: auto;
+
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+.header__nav ul {
+    display: flex;
+}
+
+.header__nav ul li{
+    list-style-type: none;
+
+    margin-left: 60px;
+    letter-spacing: 2px;
+
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.header__nav a {
+    text-decoration: none;
+
+    color: white;
+    transition: all 500ms ease; 
+}
+
+.header__nav a:hover {
+    color: #009E2A;
+}
+
+.header__nav .active {
+    border-bottom: 3px solid #009E2A;
+
+    padding-bottom: 5px;
+}
+
+.main-content {
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #fff;
+    width: 60%;
+    margin: 0 auto;
+    padding: 50px;
+    box-shadow: 0 0 0 20px rgb(0 0 0 / 20%);
+    background-color: rgb(107, 139, 107);
+}
+
+.main__info {
+    margin-right: 150px;
+}
+
+.main-info h1 {
+    margin-bottom: 30px;
+
+    font-family: 'Montserrat';
+    font-size: 40px;
+    
+    letter-spacing: 2px;
+    line-height: 60px;
+    
+}
+
+.main__button {
+    margin-top: 100px;
+
+    text-align: center;
+}
+
+.main__button a {
+    display: inline-block;
+    padding: 15px 30px;
+
+    color: white;
+    text-decoration: none;
+
+    background-color: #009E2A;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+
+    font-family: 'Montserrat';
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    transition: all 500ms ease; 
+}
+
+.main__button a:hover {
+    
+    background-color: white;
+    color: #009E2A;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 3px #009E2A;
+}
+
+.main__image img {
+    width: 200px;
+
+    border-radius: 10px;
+    
+}
+
+.black-items a {
+    color: black;
+}
+
+.search {
+    width: 100%;
+    height: 80px;
+
+    position: absolute;
+    left: 0;
+
+    background-color: #009E2A;
+}
+
+.search__form {
+    margin: 20px 230px;
+
+    display: flex;
+}
+
+.search__form-text {
+    padding: 10px;
+    width: 400px;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-radius: 15px 0 0 15px;
+}
+
+.search__form-submit {
+    padding: 10px;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    background-color: #3D3D3D;
+    color: white;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    letter-spacing: 1px;
+}
+
+.sort {
+    margin-top: 140px;
+
+    display: flex;
+
+}
+
+.main-content-katalog {
+    display: block;
+}
+
+.sort-price {
+    margin-right: 50px;
+}
+
+.pharm {
+    margin-top: 50px;
+}
+
+.hidden-menu {
+    height: 0;
+    margin-top: 0;
+    
+    list-style:none;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 250px;
+    transition: left .2s;
+    z-index: 2;
+    display: none;
+
+    text-align: center;
+}
+
+.hidden-menu li {
+    padding: 10px 0;
+    border-bottom: 1px solid #999999;
+}
+
+.hidden-menu li:first-child {
+    margin-top: 30px;
+}
+
+.hidden-menu a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .8)
+}
+
+.hidden-menu-ticker {
+    display: none;
+}
+
+.btn-menu {
+    color: #fff;
+    background-color: #009E2A;
+    width: 250px;
+    height: 40px;
+    position: fixed;
+    margin: 0 auto;
+    
+    cursor: pointer;
+    transition: top .23s;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-menu span {
+    text-align: left;  
+} 
+
+.hidden-menu-ticker:checked ~ .hidden-menu {
+    height: 100px;
+    display: block;
+}
+
+.hidden-menu-1 {
+    height: 0;
+    position: fixed;
+    
+    margin-top: 130px;
+    display: none;
+    list-style:none;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 250px;
+    transition: left .2s;
+    z-index: 2;
+    border-bottom: 1px solid #999999;
+
+    text-align: center;
+}
+
+.hidden-menu-ticker-1 {
+    display: none;
+}
+
+.btn-menu-1 {
+    color: #fff;
+    background-color: #009E2A;
+    width: 250px;
+    height: 40px;
+    position: fixed;
+    margin: 80px auto;
+    
+    cursor: pointer;
+    transition: top .23s;
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-menu-1 span {
+    text-align: left;  
+} 
+
+.hidden-menu-ticker-1:checked ~ .hidden-menu-1 {
+    height: 50px;
+
+    display: block;
+}
+
+.price-before {
+    width: 60px;
+    padding: 5px;
+    border: solid 1px #009E2A;
+}
+
+.price-after {
+    width: 60px;
+    padding: 5px;
+    border: solid 1px #009E2A;
+}
+
+.submit-show {
+    margin-top: 200px;
+
+    display: inline-block;
+    padding: 10px 20px;
+
+    color: white;
+    text-decoration: none;
+    outline: none;
+    border: none;
+
+    background-color: #009E2A;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+
+    font-family: 'Montserrat';
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    transition: all 500ms ease; 
+
+    cursor: pointer;
+}
+
+.submit-show:hover {
+    background-color: white;
+    color: #009E2A;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 3px #009E2A;
+}
+
+.main__button-show {
+    text-align: left;
+    margin-top: 0;
+}
+
+.pharm {
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.pharm__card {
+    padding: 30px 0;
+    height: fit-content;
+
+    display: flex;
+    
+
+    border-top: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+.pharm__card-img img {
+    margin-right: 50px;
+
+    width: 150px;
+}
+
+.pharm__card-info {
+    margin-right: 50px;
+}
+
+.pharm__card-info p {
+    font-size: 14px;
+    font-weight: 500;
+
+    line-height: 30px;
+}
+
+.pharm__card-price {
+    display: inherit;
+}
+
+.pharm__card-price p {
+    font-weight: 500;
+}
+
+.header__nav-show-more a {
+    color: black;
+}
+
+.main-information__header {
+    font-size: 32px;
+    margin-bottom: 20px;
+
+    font-family: 'Montserrat';
+    font-weight: 600;
+
+    text-align: center;
+}
+
+.main-information__img img {
+    width: 100%;
+    max-width: 500px;
+
+    display: block;
+    margin: 0 auto;
+}
+
+.main-information__why-we {
+    margin-top: 70px;
+}
+
+.main-information__map {
+    margin-top: 70px;
+}
+
+.main-information__why-we-items {
+    display: flex;
+
+    justify-content: space-around;
+}
+
+.main-information__why-we-items p {
+    font-size: 22px;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+.main-information__why-we-item {
+    text-align: center;
+}
