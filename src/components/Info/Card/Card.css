@@ -1,0 +1,59 @@
+.main-info__card {
+    width: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background: #fff;
+    border-radius: 4px;
+    padding: 16px;
+
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.main-info__card-image {
+    width: 55px;
+    cursor: pointer;
+}
+
+.main-info__card-name {
+    position: absolute;
+    left: 80px;
+}
+
+.main-info__card-balance {
+    position: absolute;
+    left: 219px;
+}
+
+.main-info__card-last {
+    position: absolute;
+    right: 276px;
+
+    color: #A8A8A8;
+}
+
+.main-info__card-select {
+    position: absolute !important;
+    right: 46px;
+    width: 185px;
+}
+
+.main-info__card-select:focus {
+    outline: none;
+}
+
+.css-yk16xz-control {
+    border: none !important;
+    outline: none;
+}
+
+.css-1okebmr-indicatorSeparator {
+    display: none;
+}
+
